@@ -4,9 +4,9 @@
     <div class="profile" :style="{ backgroundImage: `url(${postData.userImage})`}"></div>
     <span class="profile-name">{{ postData.name }}</span>
   </div>
-  <div class="post-body" :style="{ backgroundImage: `url(${postData.postImage})`}" :class="postData.filter"></div>
+  <div class="post-body" :style="{ backgroundImage: `url(${postData.postImage})`}" :class="postData.filter" @click="$store.commit('likePhoto', i)"></div>
   <div class="post-content">
-    <p>{{ postData.likes }} Likes</p>
+    <p>{{ $store.state.likes[i] }} Likes</p>
     <p><strong>{{ postData.name }}</strong> {{ postData.content }}</p>
     <p class="date">{{ postData.date }}</p>
   </div>
@@ -18,6 +18,7 @@ export default {
   name: 'Post',
   props: {
     postData: Object,
+    i: Number,
   }
 }
 </script>

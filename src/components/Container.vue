@@ -3,7 +3,7 @@
   <!-- 게시물 페이지 -->
     
   <div v-if="containerStep == 0">
-    <Post v-for="(post, i) in postData" :key="i" :postData="postData[i]"/>
+    <Post v-for="(post, i) in postData" :key="i" :postData="postData[i]" :i="i"/>
   </div>
 
 

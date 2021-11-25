@@ -11,6 +11,17 @@
   <img src="./assets/logo.png" class="logo" />
 </div>
 
+<!-- <h4>안녕 {{ $store.state.name }}</h4>
+<button @click="changeName()">버튼</button>
+<p>{{ $store.state.age }}</p>
+<button @click="changeAge(10)">버튼</button>
+
+<p>{{ $store.state.more }}</p>
+<button @click="getData()">더보기</button>
+
+<p>{{name}} {{age}} {{likes}}</p> -->
+
+
 <Container 
   :postData="postData" 
   :containerStep="containerStep" 
@@ -33,6 +44,7 @@
 import Container from './components/Container.vue'
 import postData from './assets/postData'
 import axios from 'axios'
+import {mapActions, mapMutations, mapState} from 'vuex'
 
 export default {
   name: 'App',
@@ -47,6 +59,7 @@ export default {
       uploadImageUrl: '',
       postText: '',
       selectedFilter: '',
+      counter: 0,
     }
   },
   mounted() {
@@ -86,7 +99,16 @@ export default {
       this.postData.unshift(myPost);
       this.containerStep = 0;
     },
-  }
+    ...mapMutations(['likePhoto','setMore','changeName','changeAge']),
+    ...mapActions(['getData']),
+  },
+  computed: {
+    name() {
+      return this.$store.state.name
+    },
+    ...mapState(['name','age','likes',]),
+    ...mapState({ 작명: 'name', }),
+  },
 }
 </script>
 
