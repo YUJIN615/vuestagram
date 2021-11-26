@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vuestagram/precache-manifest.27594aeb4c789569c9afa6977f55ae79.js"
+  "/vuestagram/precache-manifest.beb2741964956cbbcda19db4c12762ae.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vuestagram"});
